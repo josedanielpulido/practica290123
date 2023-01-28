@@ -1,0 +1,70 @@
+// Ejercicio 2 - La subcadena mas larga.
+def cadena(A,B,m,n):
+ 
+    maxLength = 0           
+    endingIndex = m        
+    lookup = [[0 for x in range(n + 1)] for y in range(m + 1)]
+ 
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+ 
+            # si el carácter actual de `X` e `Y` coincide
+            if A[i - 1] == B[j - 1]:
+                lookup[i][j] = lookup[i - 1][j - 1] + 1
+ 
+                # actualiza la longitud máxima y el índice final
+                if lookup[i][j] > maxLength:
+                    maxLength = lookup[i][j] // nos devuelve la subcadena común más larga que tiene una longitud `maxLength`
+                    endingIndex = i
+    //Aqui nos devuelve la cadema comun que no tenga letras repertida.
+    return A[endingIndex - maxLength: endingIndex]
+ 
+if __name__ == '__main__':
+ 
+    A = 'MNP'
+    B = 'MNMN'
+    m = len(A)
+    n = len(B)
+    print('La cadena mas larga es:', cadena(A, B, m, n))
+ // La respuesta seria: "La cadena mas larga es MN"
+ 
+//Ejercicio 3 - Escribir una funcion para separar caracteres de una cadena
+ cadena = "practica de laboratorio"
+ print(cadena.split())
+  //nos mostraria el siguiente esultado:
+ ['practica', 'de', 'laboratorio']
+ 
+ //En otro caso si antepodemos dentro del parentesis del split comillas ('')
+ //estas aparecerian tambien en los espacios
+ ['practica', '', 'de', '', 'laboratorio']
+ 
+//Ejercicio 4 - Escribir una función que determine la frecuencia de cada
+//carácter en una cadena dada y devuelva un diccionario.
+cadenaPalabras = 'practica de laboratorio de sabado de practica'
+
+
+listaPalabras = cadenaPalabras.split()
+
+frecuenciaPalab = []
+for w in listaPalabras:
+    frecuenciaPalab.append(listaPalabras.count(w))
+
+print("Cadena\n" + cadenaPalabras +"\n")
+print("Lista\n" + str(listaPalabras) + "\n")
+print("Frecuencias\n" + str(frecuenciaPalab) + "\n")
+//respuesta
+Cadena
+practica de laboratorio de sabado de practica
+
+Lista
+['practica', 'de', 'laboratorio', 'de', 'sabado', 'de', 'practica']
+
+Frecuencias
+[2, 3, 1, 3, 1, 3, 2]
+
+//EJERCICIO 5 - REMPLAZAR CADENA POR OTRA DCADENA DADA
+mensaje7 = "HOLA MUNDO"
+mensaje8 = mensaje7.replace("HOLA MUNDO","PIZZA GRATIS")
+print(mensaje8)
+//RESULTADO
+PIZZA GRATIS
